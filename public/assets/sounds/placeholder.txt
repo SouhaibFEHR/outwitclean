@@ -1,0 +1,12 @@
+This is a placeholder for sound assets.
+Please create the following .wav or .mp3 files in this directory:
+- tetris_move.(wav|mp3)
+- tetris_rotate.(wav|mp3)
+- tetris_drop.(wav|mp3)
+- tetris_lineclear.(wav|mp3)
+- tetris_gameover.(wav|mp3)
+- tetris_pause.wav (optional, if you want a sound for pause/resume)
+- tetris_win.wav (optional, for game win)
+
+You can find free sound effects on sites like freesound.org, zapsplat.com, or create your own.
+Keep them short and satisfying!

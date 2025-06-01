@@ -1,0 +1,105 @@
+@tailwind base;
+
+@layer base {
+  :root {
+    --background: 210 10% 10%; 
+    --foreground: 0 0% 95%; 
+    
+    --card: 210 10% 15%; 
+    --card-foreground: 0 0% 95%;
+    
+    --popover: 210 10% 12%; 
+    --popover-foreground: 0 0% 95%;
+    
+    --primary: 28 100% 58%; 
+    --primary-foreground: 25 85% 7%; 
+    --primary-rgb: 255, 150, 20; 
+
+    --secondary: 35 98% 50%; 
+    --secondary-foreground: 25 85% 7%; 
+    --secondary-rgb: 255, 120, 0; 
+    
+    --muted: 210 10% 25%; 
+    --muted-foreground: 0 0% 65%; 
+    
+    --accent: 28 100% 58%; 
+    --accent-foreground: 25 85% 7%; 
+    
+    --destructive: 0 75% 50%; 
+    --destructive-foreground: 0 0% 98%; 
+    
+    --border: 210 10% 30%; 
+    --input: 210 10% 20%; 
+    --ring: 28 100% 62%; 
+    
+    --radius: 0.8rem; 
+
+    --background-rgb: 26, 26, 28; 
+    --card-rgb: 38, 38, 41; 
+    --border-rgb: 77, 77, 82; 
+
+    --accent1: 30 100% 65%; 
+    --accent2: 25 90% 50%; 
+    --accent3: 45 100% 55%; 
+    --accent4: 210 10% 40%; 
+
+    --font-sans: 'Poppins', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+
+    --navbar-height: 125px; /* Fallback, will be updated by JS */
+    --navbar-content-height-mobile: 100px; /* Approx 84px logo + 16px padding */
+    --navbar-content-height-desktop: 125px; /* Approx 108px logo + 17px padding */
+    --scrollbar-width: 0px; /* Fallback, updated by JS if scrollbar is present */
+  }
+
+  .dark {
+    --background: 210 10% 10%; 
+    --foreground: 0 0% 95%; 
+    --card: 210 10% 15%; 
+    --card-foreground: 0 0% 95%;
+    --popover: 210 10% 12%; 
+    --popover-foreground: 0 0% 95%;
+    --primary: 28 100% 58%; 
+    --primary-foreground: 25 85% 7%; 
+    --secondary: 35 98% 50%; 
+    --secondary-foreground: 25 85% 7%;
+    --muted: 210 10% 25%; 
+    --muted-foreground: 0 0% 65%; 
+    --accent: 28 100% 58%;
+    --accent-foreground: 25 85% 7%;
+    --destructive: 0 75% 50%; 
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 10% 30%; 
+    --input: 210 10% 20%; 
+    --ring: 28 100% 62%; 
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  html, body, #root {
+    min-height: 100vh;
+    height: 100%; 
+    font-family: var(--font-sans);
+    color: hsl(var(--foreground));
+    background-color: hsl(var(--background));
+    /* overflow-x: hidden; Potentially remove if pr on nav handles scrollbar */
+  }
+  body {
+     /* cursor: none !important; */ 
+  }
+  #root {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.025em;
+  }
+}

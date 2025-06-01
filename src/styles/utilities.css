@@ -1,0 +1,90 @@
+
+@tailwind utilities;
+
+@layer utilities {
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s infinite ease-in-out;
+  }
+
+  .button-hover-glow {
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .button-hover-glow:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px hsla(var(--primary-rgb), 0.5), 0 0 25px hsla(var(--primary-rgb), 0.3);
+  }
+
+  .button-hover-glow::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, hsla(var(--primary-rgb), 0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease-out;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .button-hover-glow:hover:not(:disabled)::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .button-hover-glow > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .text-gradient {
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .cursor-dot-main, .cursor-trail-particle-enhanced {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 99999; 
+    transform: translate(-50%, -50%);
+  }
+
+  .cursor-dot-main {
+    width: 10px;
+    height: 10px;
+    background-color: hsl(var(--primary));
+    box-shadow: 0 0 8px hsl(var(--primary)), 0 0 12px hsl(var(--primary) / 0.7);
+    opacity: 1;
+  }
+
+  .cursor-trail-particle-enhanced {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.8), hsl(var(--secondary) / 0.6));
+    mix-blend-mode: screen; 
+    opacity: 1; 
+    filter: blur(1px);
+  }
+}

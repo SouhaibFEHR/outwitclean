@@ -1,0 +1,176 @@
+
+@keyframes star-twinkle-float-parallax-subtle {
+  0%, 100% {
+    opacity: var(--start-opacity);
+    transform: translateY(0) translateX(0) scale(var(--start-scale)) rotate(0deg);
+    filter: brightness(0.7) saturate(0.6); /* Reduced brightness/saturation */
+  }
+  25% {
+    opacity: calc(var(--start-opacity) * 1.5); /* Reduced peak opacity */
+    transform: translateY(calc(var(--float-y) * -0.25px)) translateX(calc(var(--float-x) * 0.25px)) scale(calc(var(--start-scale) * 1.1)) rotate(calc(var(--rotation-speed) * 0.25deg)); /* Reduced scale */
+    filter: brightness(1.2) saturate(1) drop-shadow(0 0 1.5px hsl(var(--primary) / 0.4)); /* Reduced brightness/saturation/shadow */
+  }
+  50% {
+    opacity: var(--start-opacity);
+    transform: translateY(calc(var(--float-y) * -0.5px)) translateX(calc(var(--float-x) * 0.5px)) scale(var(--start-scale)) rotate(calc(var(--rotation-speed) * 0.5deg));
+    filter: brightness(0.7) saturate(0.6);
+  }
+  75% {
+    opacity: calc(var(--start-opacity) * 1.5);
+    transform: translateY(calc(var(--float-y) * -0.75px)) translateX(calc(var(--float-x) * 0.75px)) scale(calc(var(--start-scale) * 1.1)) rotate(calc(var(--rotation-speed) * 0.75deg));
+    filter: brightness(1.2) saturate(1) drop-shadow(0 0 1.5px hsl(var(--primary) / 0.4));
+  }
+}
+
+@keyframes nebula-pulse {
+  0%, 100% {
+    opacity: var(--start-opacity);
+    transform: scale(var(--start-scale));
+    filter: blur(var(--blur-start)) saturate(0.7); /* Reduced saturation */
+  }
+  50% {
+    opacity: calc(var(--start-opacity) * 1.2); /* Reduced peak opacity */
+    transform: scale(calc(var(--start-scale) * 1.05)); /* Reduced scale */
+    filter: blur(var(--blur-end)) saturate(1) drop-shadow(0 0 8px hsl(var(--secondary) / 0.25)); /* Reduced saturation/shadow */
+  }
+}
+
+@keyframes data-stream {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes scanline { /* Potentially remove if too distracting or ensure very subtle */
+  0% { transform: translateY(-100%); opacity: 0.05; }
+  100% { transform: translateY(100%); opacity: 0.05; }
+}
+
+@keyframes subtle-pulse-border {
+  0%, 100% { border-color: hsl(var(--primary) / 0.2); box-shadow: 0 0 3px hsl(var(--primary) / 0.05); } /* More subtle */
+  50% { border-color: hsl(var(--primary) / 0.5); box-shadow: 0 0 10px hsl(var(--primary) / 0.2); } /* More subtle */
+}
+
+@keyframes astronaut-orbit { /* Simplified path for smoother perceived motion */
+  0% {
+    transform: translate(var(--orbit-x-start), var(--orbit-y-start)) rotate(0deg) scale(0.95);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(var(--orbit-x-end), var(--orbit-y-end)) rotate(5deg) scale(1); /* Reduced rotation */
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(var(--orbit-x-start), var(--orbit-y-start)) rotate(0deg) scale(0.95);
+    opacity: 0.7;
+  }
+}
+
+
+@keyframes fadeInAstronaut {
+  to { opacity: 0.7; } /* Reduced final opacity for subtlety */
+}
+
+@keyframes progress-bar-stripes {
+  from { background-position: 35px 0; }
+  to { background-position: 0 0; }
+}
+
+@keyframes badge-appear { /* Smoother timing function */
+  0% { opacity: 0; transform: translateY(15px) scale(0.7) rotateX(-20deg); filter: blur(3px); }
+  100% { opacity: 1; transform: translateY(0) scale(1) rotateX(0deg); filter: blur(0px); }
+}
+
+@keyframes pulse-glow { /* Softened effect */
+  0%, 100% { opacity: 0.9; filter: drop-shadow(0 0 8px hsl(var(--primary)/0.6)) brightness(1.1); }
+  50% { opacity: 0.7; filter: drop-shadow(0 0 15px hsl(var(--primary)/0.8)) brightness(1.25); }
+}
+
+/* Glitch animations - consider removing or making extremely brief and rare if they feel messy */
+/* For now, I will leave them but if they are the source of "messy", they should be prime candidates for removal */
+@keyframes glitch-anim-1 {
+  0% { clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%); }
+  25% { clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%); }
+  50% { clip-path: polygon(0 20%, 100% 20%, 100% 50%, 0 50%); }
+  75% { clip-path: polygon(0 0, 100% 0, 100% 10%, 0 10%); }
+  100% { clip-path: polygon(0 80%, 100% 80%, 100% 100%, 0 100%); }
+}
+@keyframes glitch-anim-2 {
+  0% { clip-path: polygon(0 5%, 100% 5%, 100% 15%, 0 15%); }
+  20% { clip-path: polygon(0 70%, 100% 70%, 100% 85%, 0 85%); }
+  40% { clip-path: polygon(0 30%, 100% 30%, 100% 40%, 0 40%); }
+  60% { clip-path: polygon(0 90%, 100% 90%, 100% 100%, 0 100%); }
+  80% { clip-path: polygon(0 10%, 100% 10%, 100% 25%, 0 25%); }
+  100% { clip-path: polygon(0 50%, 100% 50%, 100% 65%, 0 65%); }
+}
+
+@keyframes pulse-button-animation { /* Slightly more subtle */
+  0% { transform: scale(1); box-shadow: 0 0 0 0 hsla(var(--primary), 0.6); }
+  70% { transform: scale(1.025); box-shadow: 0 0 10px 15px hsla(var(--primary), 0); } /* Smaller scale and shadow */
+  100% { transform: scale(1); box-shadow: 0 0 0 0 hsla(var(--primary), 0); }
+}
+
+@keyframes global-particle-float { /* Smoother, less drastic changes */
+  0%, 100% {
+    transform: translate(var(--start-x), var(--start-y)) scale(var(--particle-scale));
+    opacity: var(--start-opacity);
+  }
+  50% {
+    transform: translate(var(--end-x), var(--end-y)) scale(calc(var(--particle-scale) * 1.05)); /* Smaller scale change */
+    opacity: calc(var(--start-opacity) * 0.65); /* Less drastic opacity change */
+  }
+}
+
+@layer utilities {
+  .floating-element-container {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; 
+    pointer-events: none; 
+    display: block !important; 
+  }
+
+  .floating-star-subtle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: hsl(var(--primary) / var(--start-opacity, 0.6)); /* Slightly less opaque start */
+    box-shadow: 0 0 2px hsl(var(--primary) / 0.3), 0 0 4px hsl(var(--primary) / 0.15); /* Softer shadow */
+    animation: star-twinkle-float-parallax-subtle linear infinite;
+    animation-duration: var(--duration);
+    animation-delay: var(--delay);
+    width: var(--size);
+    height: var(--size);
+    top: var(--top);
+    left: var(--left);
+  }
+
+  .floating-nebula-wisp {
+    position: absolute;
+    border-radius: 60% 40% 30% 70% / 70% 30% 70% 40%; 
+    background: radial-gradient(ellipse at center, hsl(var(--secondary) / calc(var(--start-opacity) * 0.4)) 0%, transparent 70%); /* More transparent gradient */
+    animation: nebula-pulse ease-in-out infinite;
+    animation-duration: var(--duration);
+    animation-delay: var(--delay);
+    width: var(--size);
+    height: var(--size);
+    top: var(--top);
+    left: var(--left);
+    opacity: var(--start-opacity);
+    will-change: transform, opacity, filter;
+  }
+
+  .floating-astronaut {
+    position: absolute;
+    width: 50px; /* Slightly smaller */
+    height: 50px;
+    opacity: 0; 
+    animation: astronaut-orbit 100s linear infinite, fadeInAstronaut 6s ease-out forwards; /* Slower orbit, longer fade-in */
+    animation-delay: 2.5s, 0s; 
+    pointer-events: none;
+    z-index: 1; 
+    filter: drop-shadow(0 0 8px hsl(var(--primary) / 0.25)); /* Softer shadow */
+  }
+}

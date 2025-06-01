@@ -1,0 +1,232 @@
+/* General Component Styles */
+.glassmorphism {
+  background: hsla(var(--card-rgb), 0.6); /* Slightly more opaque for better readability */
+  backdrop-filter: blur(12px) saturate(150%); /* Enhanced blur and saturation */
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid hsla(var(--border-rgb), 0.25); /* Softer border */
+  box-shadow: 0 8px 32px 0 hsla(var(--primary-rgb), 0.15); /* Subtle shadow */
+}
+
+.glassmorphism-deep { /* For modals or elements needing more focus */
+  background: hsla(var(--background-rgb), 0.75); /* Darker, more focused background */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid hsla(var(--border-rgb), 0.35);
+  box-shadow: 0 12px 45px 0 hsla(var(--primary-rgb), 0.2);
+}
+
+.button-hover-glow {
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.button-hover-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px hsla(var(--primary-rgb), 0.5), 0 0 25px hsla(var(--primary-rgb), 0.3);
+}
+
+.button-hover-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, hsla(var(--primary-rgb), 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease-out;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.button-hover-glow:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Ensure button content is above the glow effect */
+.button-hover-glow > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.text-gradient {
+  background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.progress-bar-filled > div {
+  background-image: linear-gradient(90deg, hsl(var(--primary) / 0.7), hsl(var(--primary)));
+  box-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+}
+
+.service-icon-hover:hover svg {
+  transform: scale(1.15) rotate(-5deg);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.service-icon-hover svg {
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.animated-border-card {
+  position: relative;
+  border: 2px solid transparent; 
+  background-clip: padding-box; 
+  transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.animated-border-card:hover {
+  border-color: hsl(var(--primary) / 0.0); 
+  transform: translateY(-6px) scale(1.04); /* Slightly more pronounced lift and scale */
+  box-shadow: 0 12px 24px hsla(var(--primary-rgb), 0.2), 0 6px 12px hsla(var(--primary-rgb), 0.15); /* Enhanced shadow */
+}
+
+.animated-border-card::before {
+  content: "";
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  z-index: -1;
+  border-radius: inherit; 
+  background: linear-gradient(135deg, 
+    hsl(var(--primary) / 0.8), 
+    hsl(var(--secondary) / 0.7), 
+    hsl(var(--accent3) / 0.8), /* Goldish accent */
+    hsl(var(--primary) / 0.8)
+  );
+  background-size: 300% 100%; /* Wider gradient for more travel */
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out, background-position 1s ease-in-out; /* Slower shine travel */
+  animation: borderShineAnimation 5s linear infinite; /* Continuous slow movement baseline */
+}
+
+.animated-border-card:hover::before {
+  opacity: 1;
+  background-position: 100% 0%; /* Force end position on hover for immediate shine */
+  animation: borderShineHoverAnimation 1.5s ease-out forwards; /* Override with a specific hover animation */
+}
+
+@keyframes borderShineAnimation {
+  0% { background-position: 0% 0%; }
+  100% { background-position: -300% 0%; } /* Full travel of the wider gradient */
+}
+
+@keyframes borderShineHoverAnimation { /* Specific animation for hover state */
+  0% { background-position: 0% 0%; opacity: 0.8; }
+  100% { background-position: 100% 0%; opacity: 1; }
+}
+
+
+/* Custom Scrollbar for specific elements (like forms in dialogs) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: hsl(var(--background) / 0.5);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--primary) / 0.6);
+  border-radius: 10px;
+  border: 2px solid hsl(var(--background) / 0.5); /* Creates padding around thumb */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--primary) / 0.8);
+}
+
+.custom-scrollbar-small::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar-small::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted-foreground) / 0.5);
+  border-radius: 6px;
+}
+.custom-scrollbar-small::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--muted-foreground) / 0.7);
+}
+
+
+/* Admin Table Specific Styles */
+.admin-table th {
+  @apply text-sm font-semibold text-muted-foreground bg-muted/50;
+}
+
+.admin-table td {
+  @apply text-sm text-foreground/90;
+}
+
+.admin-table tr:hover {
+  @apply bg-muted/30;
+}
+
+/* Holographic Title Effect - Main text styling */
+.holographic-title {
+  position: relative;
+  color: transparent; 
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(135deg, hsl(var(--primary) / 0.9) 0%, hsl(var(--secondary) / 0.9) 100%);
+}
+
+/* Background words for holographic title - Soft, elegant effect */
+.holographic-title::before,
+.holographic-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none; /* Remove any text shadow */
+  filter: none; /* Remove any blur */
+  animation: none; /* Remove glitch animations */
+}
+
+.holographic-title::before {
+  background-image: linear-gradient(135deg, hsl(var(--primary) / 0.1) 0%, hsl(var(--secondary) / 0.1) 100%); /* Very light purple/brand colors */
+  transform: none; /* No skew or offset */
+  opacity: 0.15; /* Light opacity: 10-15% */
+}
+
+.holographic-title::after {
+  background-image: linear-gradient(135deg, hsl(var(--muted-foreground) / 0.05) 0%, hsl(var(--muted-foreground) / 0.1) 100%); /* Even fainter, slightly different hue for depth */
+  transform: none; /* No skew or offset */
+  opacity: 0.1; /* Light opacity: 10-15% */
+}
+
+
+/* Custom Cursor Styles */
+.cursor-dot-main, .cursor-trail-particle-enhanced { /* Removed .cursor-dot-aura */
+  position: fixed; /* Use fixed to ensure it's relative to viewport */
+  top: 0; /* Initial position, will be updated by JS */
+  left: 0; /* Initial position, will be updated by JS */
+  pointer-events: none; /* Ensure cursor elements don't interfere with interactions */
+  border-radius: 50%;
+  z-index: 99999; /* Extremely High z-index to be on top of everything, including admin modals */
+  transform: translate(-50%, -50%); /* Center the dot on the actual cursor position */
+}
+
+.cursor-dot-main {
+  width: 10px;
+  height: 10px;
+  background-color: hsl(var(--primary));
+  box-shadow: 0 0 8px hsl(var(--primary)), 0 0 12px hsl(var(--primary) / 0.7);
+  opacity: 1;
+}
+
+.cursor-trail-particle-enhanced {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.8), hsl(var(--secondary) / 0.6));
+  mix-blend-mode: screen; 
+  opacity: 1; 
+  filter: blur(1px);
+}

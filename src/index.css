@@ -1,0 +1,108 @@
+
+@import './styles/base.css';
+@import './styles/components.css';
+@import './styles/utilities.css';
+@import './styles/animations.css'; /* Contains floating element animations */
+@import './styles/keyframes.css'; /* Contains all @keyframes */
+
+/* Styles specific to Tetris game that were previously in index.css */
+.tetris-game-wrapper {
+  background-color: hsl(var(--background) / 0.7); 
+  backdrop-filter: blur(5px);
+  width: 100%;
+  max-width: 500px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tetris-playfield-frame {
+  padding: 6px; 
+  border-radius: var(--radius);
+  background-color: hsl(var(--muted) / 0.3); 
+  box-shadow: 
+    0 0 4px hsl(var(--primary) / 0.25),
+    0 0 8px hsl(var(--primary) / 0.15),
+    0 0 12px hsl(var(--secondary) / 0.15),
+    inset 0 0 6px hsl(var(--background) / 0.4); 
+  border: 1px solid hsl(var(--primary) / 0.15);
+  display: inline-block; 
+  transition: box-shadow 0.3s ease;
+}
+
+.tetris-playfield-frame:hover {
+   box-shadow: 
+    0 0 6px hsl(var(--primary) / 0.4),
+    0 0 12px hsl(var(--primary) / 0.25),
+    0 0 20px hsl(var(--secondary) / 0.25),
+    inset 0 0 8px hsl(var(--background) / 0.5);
+}
+
+.tetris-canvas-main {
+  display: block; 
+  border-radius: calc(var(--radius) * 0.4); 
+  background-color: hsl(var(--background)); 
+  outline: 1px solid hsl(var(--border) / 0.25);
+}
+
+.tetris-info-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 90px; 
+}
+
+.tetris-next-piece-preview-container {
+  border: 1px solid hsl(var(--border) / 0.4);
+  border-radius: calc(var(--radius) * 0.4);
+  padding: 3px;
+  background-color: hsl(var(--background) / 0.6);
+  margin-top: 3px;
+  min-width: 70px; 
+  min-height: 70px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tetris-game-wrapper .lucide {
+  width: 0.9em; 
+  height: 0.9em;
+}
+
+.tetris-game-wrapper button {
+  padding: 0.4rem 0.65rem; 
+  font-size: 0.8rem; 
+}
+
+.tetris-game-wrapper button .lucide {
+  margin-right: 0.2rem; 
+}
+
+.tetris-game-wrapper:fullscreen {
+  background-color: hsl(var(--background)); 
+  padding: 15px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tetris-game-wrapper:fullscreen .tetris-playfield-frame {
+  border-width: 1.5px; 
+}
+
+/* Stardust Background Styles - these are minimal as most is handled by JS */
+.stardust-background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -10;
+}
+
+.stardust-particle {
+  will-change: transform, opacity;
+}

@@ -1,0 +1,125 @@
+
+@keyframes star-twinkle-float-parallax-subtle {
+  0%, 100% {
+    opacity: var(--start-opacity);
+    transform: translateY(0) translateX(0) scale(var(--start-scale)) rotate(0deg);
+    filter: brightness(0.7) saturate(0.6);
+  }
+  25% {
+    opacity: calc(var(--start-opacity) * 1.5);
+    transform: translateY(calc(var(--float-y) * -0.25px)) translateX(calc(var(--float-x) * 0.25px)) scale(calc(var(--start-scale) * 1.1)) rotate(calc(var(--rotation-speed) * 0.25deg));
+    filter: brightness(1.2) saturate(1) drop-shadow(0 0 1.5px hsl(var(--primary) / 0.4));
+  }
+  50% {
+    opacity: var(--start-opacity);
+    transform: translateY(calc(var(--float-y) * -0.5px)) translateX(calc(var(--float-x) * 0.5px)) scale(var(--start-scale)) rotate(calc(var(--rotation-speed) * 0.5deg));
+    filter: brightness(0.7) saturate(0.6);
+  }
+  75% {
+    opacity: calc(var(--start-opacity) * 1.5);
+    transform: translateY(calc(var(--float-y) * -0.75px)) translateX(calc(var(--float-x) * 0.75px)) scale(calc(var(--start-scale) * 1.1)) rotate(calc(var(--rotation-speed) * 0.75deg));
+    filter: brightness(1.2) saturate(1) drop-shadow(0 0 1.5px hsl(var(--primary) / 0.4));
+  }
+}
+
+@keyframes nebula-pulse {
+  0%, 100% {
+    opacity: var(--start-opacity);
+    transform: scale(var(--start-scale));
+    filter: blur(var(--blur-start)) saturate(0.7);
+  }
+  50% {
+    opacity: calc(var(--start-opacity) * 1.2);
+    transform: scale(calc(var(--start-scale) * 1.05));
+    filter: blur(var(--blur-end)) saturate(1) drop-shadow(0 0 8px hsl(var(--secondary) / 0.25));
+  }
+}
+
+@keyframes data-stream {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); opacity: 0.05; }
+  100% { transform: translateY(100%); opacity: 0.05; }
+}
+
+@keyframes subtle-pulse-border {
+  0%, 100% { border-color: hsl(var(--primary) / 0.2); box-shadow: 0 0 3px hsl(var(--primary) / 0.05); }
+  50% { border-color: hsl(var(--primary) / 0.5); box-shadow: 0 0 10px hsl(var(--primary) / 0.2); }
+}
+
+@keyframes astronaut-orbit {
+  0% {
+    transform: translate(var(--orbit-x-start), var(--orbit-y-start)) rotate(0deg) scale(0.95);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(var(--orbit-x-end), var(--orbit-y-end)) rotate(5deg) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(var(--orbit-x-start), var(--orbit-y-start)) rotate(0deg) scale(0.95);
+    opacity: 0.7;
+  }
+}
+
+
+@keyframes fadeInAstronaut {
+  to { opacity: 0.7; }
+}
+
+@keyframes progress-bar-stripes {
+  from { background-position: 35px 0; }
+  to { background-position: 0 0; }
+}
+
+@keyframes badge-appear {
+  0% { opacity: 0; transform: translateY(15px) scale(0.7) rotateX(-20deg); filter: blur(3px); }
+  100% { opacity: 1; transform: translateY(0) scale(1) rotateX(0deg); filter: blur(0px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.9;
+    filter: drop-shadow(0 0 8px hsl(var(--primary)/0.6)) brightness(1.1);
+  }
+  50% {
+    opacity: 0.7;
+    filter: drop-shadow(0 0 15px hsl(var(--primary)/0.8)) brightness(1.25);
+  }
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%); }
+  25% { clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%); }
+  50% { clip-path: polygon(0 20%, 100% 20%, 100% 50%, 0 50%); }
+  75% { clip-path: polygon(0 0, 100% 0, 100% 10%, 0 10%); }
+  100% { clip-path: polygon(0 80%, 100% 80%, 100% 100%, 0 100%); }
+}
+@keyframes glitch-anim-2 {
+  0% { clip-path: polygon(0 5%, 100% 5%, 100% 15%, 0 15%); }
+  20% { clip-path: polygon(0 70%, 100% 70%, 100% 85%, 0 85%); }
+  40% { clip-path: polygon(0 30%, 100% 30%, 100% 40%, 0 40%); }
+  60% { clip-path: polygon(0 90%, 100% 90%, 100% 100%, 0 100%); }
+  80% { clip-path: polygon(0 10%, 100% 10%, 100% 25%, 0 25%); }
+  100% { clip-path: polygon(0 50%, 100% 50%, 100% 65%, 0 65%); }
+}
+
+@keyframes pulse-button-animation {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 hsla(var(--primary), 0.6); }
+  70% { transform: scale(1.025); box-shadow: 0 0 10px 15px hsla(var(--primary), 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 hsla(var(--primary), 0); }
+}
+
+@keyframes global-particle-float {
+  0%, 100% {
+    transform: translate(var(--start-x), var(--start-y)) scale(var(--particle-scale));
+    opacity: var(--start-opacity);
+  }
+  50% {
+    transform: translate(var(--end-x), var(--end-y)) scale(calc(var(--particle-scale) * 1.05));
+    opacity: calc(var(--start-opacity) * 0.65);
+  }
+}
